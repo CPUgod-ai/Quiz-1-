@@ -1,26 +1,21 @@
 class SistemaRecomendacion:
     def __init__(self):
-        # Diccionario que guarda los productos comprados por cada usuario
-        # Ejemplo: {"Ana": {"Pan", "Leche"}}
-        self.compras_por_usuario = {}
-
-        # Diccionario que guarda qué usuarios compraron cada producto
-        # Ejemplo: {"Pan": {"Ana", "Juan"}}
-        self.usuarios_por_producto = {}
+        self.compras_por_usuario = {} #La clave es el usuario 
+        self.usuarios_por_producto = {} #la clave es el producto
 
     def agregar_compra(self, usuario, producto):
-        # Si el usuario no existe en el diccionario, se crea
+        #Verifica si el usuario no existe aun
         if usuario not in self.compras_por_usuario:
-            self.compras_por_usuario[usuario] = set()
+            self.compras_por_usuario[usuario] = set()  #Se crea un conjunto vacío para guardar los productos
 
-        # Se agrega el producto al conjunto de compras del usuario
+        # Agrega el producto a las compras del usuario.
         self.compras_por_usuario[usuario].add(producto)
 
-        # Si el producto no existe en el diccionario, se crea
+        # Verifica si el producto no existe en el diccionario.
         if producto not in self.usuarios_por_producto:
-            self.usuarios_por_producto[producto] = set()
+            self.usuarios_por_producto[producto] = set() #Se crea un conjunto vacio para guardar usuarios
 
-        # Se agrega el usuario al conjunto de usuarios que compraron ese producto
+        # Se agrega el usuario a las personas que compraron ese producto
         self.usuarios_por_producto[producto].add(usuario)
 
     def obtener_recomendaciones(self, usuario):
@@ -68,4 +63,5 @@ sistema.agregar_compra("Luis", "Huevos")
 
 print("Recomendaciones para Ana:", sistema.obtener_recomendaciones("Ana"))
 print("Recomendaciones para Juan:", sistema.obtener_recomendaciones("Juan"))
+print("Recomendaciones para Luis:", sistema.obtener_recomendaciones("Luis"))
 
