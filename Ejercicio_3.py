@@ -52,16 +52,11 @@ class SistemaRecomendacion:
                         if prod not in productos_usuario:
                             recomendaciones.add(prod)
 
-        # Se devuelven las recomendaciones
+       
         return recomendaciones
 
-
-# ----------- PRUEBA DEL SISTEMA -----------
-
-# Se crea el sistema de recomendación
 sistema = SistemaRecomendacion()
 
-# Se registran las compras de los usuarios
 sistema.agregar_compra("Ana", "Pan")
 sistema.agregar_compra("Ana", "Leche")
 
@@ -71,6 +66,6 @@ sistema.agregar_compra("Juan", "Huevos")
 sistema.agregar_compra("Luis", "Leche")
 sistema.agregar_compra("Luis", "Huevos")
 
-# Se muestran las recomendaciones
 print("Recomendaciones para Ana:", sistema.obtener_recomendaciones("Ana"))
 print("Recomendaciones para Juan:", sistema.obtener_recomendaciones("Juan"))
+
